@@ -113,7 +113,7 @@ const Home = () => {
           />
         </div>
 
-        <ExploreMore />
+        {/* <ExploreMore /> */}
       </div>
 
       <div className="hidden lg:block lg:h-[200px]"></div>
