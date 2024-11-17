@@ -11,7 +11,7 @@ import {
   setTotalNoOfLecture,
 } from "../slices/viewCourseSlice";
 import { getFullDetailsOfCourse } from "../services/operations/courseDetailsAPI";
-import VideoDetailsSlidebar from "../components/core/ViewCourse/videoDetailsSlidebar";
+import VideoDetailsSlidebar from "../components/core/ViewCourse/VideoDetailsSlidebar";
 import ConfirmationModal from "../components/core/ViewCourse/CourseReviewModal"
 function ViewCourse() {
   const [reviewModal, setReviewModal] = useState(false);
