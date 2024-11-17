@@ -7,7 +7,7 @@ import CodeBlocks from "../components/core/HomePage/CodeBlocks";
 import TimelineSection from "../components/core/HomePage/TimelineSection";
 import LearnLanguageSection from "../components/core/HomePage/LearnLanguageSection";
 import InstructorSection from "../components/core/HomePage/InstructorSection";
-import ExploreMore from "../Components/core/HomePage/ExploreMore";
+import ExploreMore from "../components/core/HomePage/ExploreMore";
 import Footer from "../components/common/Footer";
 import AnimationContent from "../components/core/HomePage/AnimationContent";
 import ReviewSlider from "../components/common/ReviewSlider";
@@ -113,7 +113,7 @@ const Home = () => {
           />
         </div>
 
-        {/* <ExploreMore /> */}
+        <ExploreMore />
       </div>
 
       <div className="hidden lg:block lg:h-[200px]"></div>
