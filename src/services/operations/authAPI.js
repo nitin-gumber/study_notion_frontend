@@ -3,7 +3,7 @@ import { apiConnector } from "../apiConnector";
 import { endpoints } from "../apis";
 import { setLoading, setToken } from "../../slices/authSlice";
 import { setUser } from "../../slices/profileSlice";
-import {resetCart} from "../../slices/cartSlice"
+import { resetCart } from "../../slices/cartSlice";
 
 const {
   SENDOTP_API,
@@ -29,8 +29,8 @@ export function sendOtp(email, navigate, isResend = true) {
         navigate("/verify-email");
       }
     } catch (error) {
-      console.log("ERROR", error);
-      toast.error(error.response?.data?.message || "Something went wrong");
+      console.log("ERROR while sending OTP", error);
+      toast.error(error.response?.data?.message);
     }
     dispatch(setLoading(false));
   };
@@ -64,8 +64,8 @@ export function signup(
       dispatch(setLoading(false));
       navigate("/login");
     } catch (error) {
-      console.log("ERROR", error);
-      toast.error(error.response.data.message || "Something went wrong");
+      console.log("ERROR while signing up", error);
+      toast.error(error.response.data.message);
     }
     dispatch(setLoading(false));
   };
@@ -86,13 +86,12 @@ export function login(email, password, navigate) {
       dispatch(setToken(response.data.token));
       dispatch(setUser({ ...response.data.user }));
       localStorage.setItem("token", JSON.stringify(response.data.token));
-
       // Navigate to the dashboard and show a success toast message
       navigate("/dashboard/my-profile");
       toast.success(response.data.message);
     } catch (error) {
-      console.log("ERROR", error);
-      toast.error(error.response.data.message || "Something went wrong");
+      console.log("ERROR while logging in", error);
+      toast.error(error.response.data.message);
     }
     dispatch(setLoading(false));
   };
@@ -113,8 +112,8 @@ export function getPasswordRestToken(email, setEmailSend) {
       dispatch(setLoading(false));
       toast.success(response.data.message);
     } catch (error) {
-      console.log("ERROR", error);
-      toast.error(error.response.data.message || "Something went wrong");
+      console.log("ERROR while getting password reset token", error);
+      toast.error(error.response.data.message);
     }
     dispatch(setLoading(false));
   };
@@ -137,8 +136,8 @@ export function resetPassword(password, confirmPassword, token, navigate) {
       toast.success(response.data.message);
       navigate("/login");
     } catch (error) {
-      console.log("ERROR", error);
-      toast.error(error.response.data.message || "Something went wrong");
+      console.log("ERROR while resetting password", error);
+      toast.error(error.response.data.message);
     }
     dispatch(setLoading(false));
   };

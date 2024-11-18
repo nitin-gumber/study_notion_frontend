@@ -14,14 +14,13 @@ import AddCourse from "./components/core/Dashboard/AddCourse";
 import Cart from "./components/core/Dashboard/Cart";
 import EditCourse from "./components/core/Dashboard/EditCourse";
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
-import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor"
+import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
 import MyCourses from "./components/core/Dashboard/MyCourse";
 import MyProfile from "./components/core/Dashboard/MyProfile";
 import Settings from "./components/core/Dashboard/Settings";
 import VideoDetails from "./components/core/ViewCourse/VideoDetails";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-// import Dashboard from "./pages/Dashboard";
 import ForgetPassword from "./pages/ForgetPassword";
 
 // pages
@@ -41,6 +40,7 @@ import Dashboard from "./pages/Dashboard";
 import ChatWithAI from "./pages/ChatWithAI";
 
 function App() {
+  // AOS - Animate on Scroll
   Aos.init(
     { once: true },
     { duration: 1000 },
@@ -54,6 +54,7 @@ function App() {
   const { user } = useSelector((state) => state.profile);
   const { contactData } = useSelector((state) => state.contactData);
 
+  // Get User Details from the token
   useEffect(() => {
     if (localStorage.getItem("token")) {
       const token = JSON.parse(localStorage.getItem("token"));
@@ -69,38 +70,55 @@ function App() {
         <title>StudyNotion - Online Learning Platform</title>
         <meta
           name="description"
-          content="Code For Cause is a platform that provides free courses on programming and development."
+          content="StudyNotion is a platform that provides free courses on programming and development."
         />
         <meta
           name="keywords"
-          content="Code For Cause, programming, development"
+          content="Code For Cause, programming, development courses, free courses StudyNotion StudyNotionOnline Online Course Selling Plateform StudyNotion, Nitin Gumber, Nitin Kumar, Nitin Gumber, Nitin Kumar Gumber, Nitin Gumber's Project"
         />
 
         <meta property="og:title" content="Code For Cause" />
         <meta
           property="og:description"
-          content="Code For Cause is a platform that provides free courses on programming and development."
+          content="StudyNotion is a platform that provides free courses on programming and development."
         />
-        <meta property="og:image" content="https://www.example.com/image.jpg" />
-        <meta property="og:url" content="https://www.example.com" />
+        <meta property="og:image" content="./assets/Logo/Logo-Full-Light.png" />
+        <meta
+          property="og:url"
+          content="https://studynotion-online.vercel.app"
+        />
         <meta property="og:type" content="website" />
       </Helmet>
 
       <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
         <Navbar />
         <Routes>
+          {/* Add comments */}
+
+          {/* Home path */}
           <Route path="/" element={<Home />} />
+
+          {/* About path */}
           <Route path="/about" element={<About />} />
+
+          {/* Contact message success path */}
           {contactData && (
             <Route
               path="/message-sent/success"
               element={<MessageSuccessPage />}
             />
           )}
+
+          {/* Contact path */}
           <Route path="/contact" element={<Contact />} />
+
+          {/* Catalog path */}
           <Route path="catalog/:catalogName" element={<Catalog />} />
+
+          {/* Course Details path */}
           <Route path="courses/:courseId" element={<CourseDetails />} />
 
+          {/* Chatwithai Path */}
           <Route
             path="/chatwithai"
             element={
@@ -109,9 +127,6 @@ function App() {
               </PrivateRoute>
             }
           />
-
-          {/* <Routes path="courses/:courseId" element={<CourseDetails />} /> */}
-          {/* <Route path="catelog/:catelogName" element={<Catelog />} /> */}
 
           {/* Open Rotes - for only Non Logged in User */}
           <Route
@@ -160,7 +175,6 @@ function App() {
           />
 
           {/* Private Routes - for only Logged in User */}
-
           <Route
             element={
               <PrivateRoute>
@@ -197,10 +211,7 @@ function App() {
             )}
           </Route>
 
-          {/* <Route path="dashboard/settings" element={<Settings />} /> */}
-
           {/* For the Watching Course lecture */}
-
           <Route
             element={
               <PrivateRoute>
@@ -218,6 +229,7 @@ function App() {
             )}
           </Route>
 
+          {/* Error Page */}
           <Route path="*" element={<Error />} />
         </Routes>
       </div>

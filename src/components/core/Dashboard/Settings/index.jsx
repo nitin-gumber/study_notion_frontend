@@ -16,7 +16,7 @@ const Settings = () => {
       <ChangePassword />
 
       {/* Delete Account */}
-      {/* <DeleteAccount /> */}
+      {/* <DeleteAccount />  */} // This feature is not implemented yet so it is commented out
     </>
   );
 };

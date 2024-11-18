@@ -28,10 +28,11 @@ const ExploreMore = () => {
 
   return (
     <div>
-      <div 
-      data-aos="fade-right"
-      data-aos-duration="1500"
-      className="text-3xl font-semibold text-center lg:text-4xl">
+      <div
+        data-aos="fade-right"
+        data-aos-duration="1500"
+        className="text-3xl font-semibold text-center lg:text-4xl"
+      >
         Unlock the
         <HighlightText text={"Power of Code"} />
       </div>
@@ -41,8 +42,8 @@ const ExploreMore = () => {
       </p>
 
       <div
-      data-aos="fade-up"
-      data-aos-duration="1500"
+        data-aos="fade-up"
+        data-aos-duration="1500"
         className="mt-5 flex flex-row rounded-full bg-richblack-800 mb-3 border-richblack-100
       px-1 py-1"
       >

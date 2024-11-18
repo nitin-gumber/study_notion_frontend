@@ -16,7 +16,8 @@ function loadScript(src) {
   return new Promise((resolve) => {
     const script = document.createElement("script");
     script.src = src;
-    script.onload = () => { // Resolve the promise if the script is loaded successfully when the onload event is triggered
+    script.onload = () => {
+      // Resolve the promise if the script is loaded successfully when the onload event is triggered
       resolve(true);
     };
     script.onerror = () => {
@@ -39,10 +40,14 @@ export async function BuyCourse(
 
   try {
     // Loading the script of Razorpay SDK
-    const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
 
     if (!res) {
-      toast.error("Razorpay SDK failed to load. Check your Internet Connection.");
+      toast.error(
+        "Razorpay SDK failed to load. Check your Internet Connection."
+      );
       if (screenWidth < 768) {
         alert("Please check your connection and try again.");
       }
@@ -60,20 +65,15 @@ export async function BuyCourse(
     if (!orderResponse.data.success) {
       throw new Error(orderResponse.data.message);
     }
-    console.log("PAYMENT RESPONSE FROM BACKEND............", orderResponse.data);
 
     // Opening the Razorpay SDK
     const RAZORPAY_KEY = import.meta.env.VITE_ROZARPAY_KEY;
-
-    console.log("Order id: ", orderResponse.data.data.id);
-    console.log("Payment Id: ", orderResponse.data.data.amount);
-
     const options = {
       key: RAZORPAY_KEY,
       currency: orderResponse.data.data.currency,
       amount: `${orderResponse.data.data.amount}`,
       order_id: orderResponse.data.data.id,
-      name: "StudyNotion",
+      name: "StudyNotion-Online",
       description: "Thank you for Purchasing the Course.",
       image: rzpLogo,
       prefill: {
@@ -84,7 +84,11 @@ export async function BuyCourse(
         color: screenWidth < 768 ? "#F37254" : "#528FF0", // Adjust color based on screen size
       },
       handler: function (response) {
-        sendPaymentSuccessEmail(response, orderResponse.data.data.amount, token);
+        sendPaymentSuccessEmail(
+          response,
+          orderResponse.data.data.amount,
+          token
+        );
         verifyPayment({ ...response, courses }, token, navigate, dispatch);
       },
     };
@@ -94,7 +98,7 @@ export async function BuyCourse(
 
     paymentObject.on("payment.failed", function (response) {
       toast.error("Oops! Payment Failed.");
-      console.log(response.error);
+      console.log("Payment Failed............", response.error || response);
     });
   } catch (error) {
     console.log("PAYMENT API ERROR............", error);
@@ -107,14 +111,11 @@ export async function BuyCourse(
 async function verifyPayment(bodyData, token, navigate, dispatch) {
   const toastId = toast.loading("Verifying Payment...");
   const screenWidth = window.innerWidth;
-
   dispatch(setPaymentLoading(true));
   try {
     const response = await apiConnector("POST", COURSE_VERIFY_API, bodyData, {
       Authorization: `Bearer ${token}`,
     });
-
-    console.log("VERIFY PAYMENT RESPONSE FROM BACKEND............", response);
 
     if (!response.data.success) {
       throw new Error(response.data.message);

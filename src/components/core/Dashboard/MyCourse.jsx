@@ -9,9 +9,7 @@ import CoursesTable from "./AddCourse/InstructorCourses/CoursesTable";
 
 const MyCourse = () => {
   const navigate = useNavigate();
-
   const { token } = useSelector((state) => state.auth);
-
   const [courses, setCourses] = useState([]);
 
   const { data } = useQuery({

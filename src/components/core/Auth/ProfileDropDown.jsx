@@ -16,9 +16,7 @@ const ProfileDropDown = ({ setOpen }) => {
 
   // Confirmation modal state
   const [confirmationModal, setConfirmationModal] = useState(null);
-
   const [showDropDown, setShowDropDown] = useState(false);
-
   const dropdownRef = useRef(null);
 
   // Using the custom hook to detect clicks outside the dropdown

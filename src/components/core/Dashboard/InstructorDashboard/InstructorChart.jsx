@@ -30,6 +30,11 @@ const InstructorChart = ({ details, currentChart }) => {
     ],
   };
 
+  const totalEarnings = details?.reduce(
+    (acc, course) => acc + course?.totalRevenue,
+    0
+  );
+
   const RevenueData = {
     labels: details?.map((course) => course?.courseName),
     datasets: [
@@ -45,32 +50,40 @@ const InstructorChart = ({ details, currentChart }) => {
 
   return (
     <>
-      <div className="mt-8 ">
-        {/* change label position extreme right and increase gap and change chart size */}
-        {currentChart === "revenue" ? (
-          <Pie
-            data={RevenueData}
-            options={{
-              plugins: {
-                legend: {
-                  position: "right",
-                  labels: {
-                    boxWidth: 10,
-                    boxHeight: 10,
-                    padding: 20,
-                    font: {
-                      size: 12,
+      {totalEarnings ? (
+        <div className="mt-8 ">
+          {/* change label position extreme right and increase gap and change chart size */}
+          {currentChart === "revenue" ? (
+            <Pie
+              data={RevenueData}
+              options={{
+                plugins: {
+                  legend: {
+                    position: "right",
+                    labels: {
+                      boxWidth: 10,
+                      boxHeight: 10,
+                      padding: 20,
+                      font: {
+                        size: 12,
+                      },
                     },
                   },
                 },
-              },
-              aspectRatio: 2,
-            }}
-          />
-        ) : (
-          <Pie data={StudentsData} />
-        )}
-      </div>
+                aspectRatio: 2,
+              }}
+            />
+          ) : (
+            <Pie data={StudentsData} />
+          )}
+        </div>
+      ) : (
+        <div>
+          <h2 className="py-10 text-center text-2xl font-medium text-richblack-100">
+            Data Not Available
+          </h2>
+        </div>
+      )}
     </>
   );
 };

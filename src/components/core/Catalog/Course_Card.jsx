@@ -64,14 +64,21 @@ function Course_Card({ course }) {
           {/* Course Details */}
           <CardContent>
             {/* Course Title */}
-            <Typography variant="h6" color="#F1F2FF" gutterBottom>
-              {course?.courseName}
+            <Typography
+              variant="h6"
+              color="#F1F2FF"
+              gutterBottom
+              sx={{ fontWeight: "bold", fontSize: "1rem" }}
+            >
+              {course?.courseName.split(" ").length > 4
+                ? course?.courseName.split(" ").slice(0, 4).join(" ") + "..."
+                : course?.courseName}
             </Typography>
 
             {/* Discription */}
             <Typography variant="body2" color="#F1F2FF">
-              {course?.courseDescription.length > 100
-                ? course?.courseDescription.slice(0, 100) + "..."
+              {course?.courseDescription.length > 80
+                ? course?.courseDescription.slice(0, 80) + "..."
                 : course?.courseDescription}
             </Typography>
 

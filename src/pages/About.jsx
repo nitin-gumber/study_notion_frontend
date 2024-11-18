@@ -25,14 +25,19 @@ const About = () => {
           name="keywords"
           content="StudyNotion, StudyNotionAbout, about online learning, coding, design, courses, industry experts"
         />
-
         <meta property="og:title" content="StudyNotion - About Us" />
         <meta
           property="og:description"
           content="StudyNotion is an online learning platform that offers courses in coding, design, and more. Learn from industry experts and start coding in seconds."
         />
-        <meta property="og:image" content="https://www.example.com/image.jpg" />
-        <meta property="og:url" content="https://www.example.com" />
+        <meta
+          property="og:image"
+          content="../assets/Logo/Logo-Full-Light.png"
+        />
+        <meta
+          property="og:url"
+          content="https://studynotion-online.vercel.app/about"
+        />
         <meta property="og:type" content="website" />
       </Helmet>
 

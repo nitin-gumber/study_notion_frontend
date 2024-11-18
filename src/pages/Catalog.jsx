@@ -7,8 +7,11 @@ import { getCatalogPageData } from "../services/operations/pageAndComponentData"
 import Course_Card from "../components/core/Catalog/Course_Card";
 import Course_Slider from "../components/core/Catalog/Course_Slider";
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 
 const Catalog = () => {
+  const location = useLocation();
+
   const { catalogName } = useParams();
   const { courseCategories } = useSelector((state) => state.courseCategories);
 
@@ -49,7 +52,7 @@ const Catalog = () => {
 
         <meta
           name="description"
-          content={`Explore courses in ${catalogPageData?.selectedCategory?.name}`}
+          content={`Catalog - ${catalogPageData?.selectedCategory?.description}`}
         />
         <meta
           name="keywords"
@@ -58,16 +61,19 @@ const Catalog = () => {
 
         <meta
           property="og:title"
-          content={`Catalog - ${catalogPageData?.selectedCategory?.name}`}
+          content={`Catalog - ${catalogPageData?.selectedCategory?.description}`}
         />
-        <meta
-          property="og:description"
-          content={`Explore courses in ${catalogPageData?.selectedCategory?.name}`}
-        />
+        <meta property="og:description" content={``} />
 
         {/* for dynamacally icon change */}
-        <meta property="og:image" content="https://www.example.com/image.jpg" />
-        <meta property="og:url" content="https://www.example.com" />
+        <meta
+          property="og:image"
+          content="../assets/Logo/Logo-Full-Light.png"
+        />
+        <meta
+          property="og:url"
+          content={`https://studynotion-online.vercel.app${location.pathname}`}
+        />
         <meta property="og:type" content="website" />
       </Helmet>
 
@@ -83,7 +89,7 @@ const Catalog = () => {
           <p className="text-2xl md:text-3xl lg:text-4xl text-richblack-5">
             {catalogPageData?.selectedCategory?.name}
           </p>
-          <p className="max-w-[870px] text-richblack-200 text-sm sm:text-base md:text-lg">
+          <p className="max-w-[1200px] text-richblack-200 text-sm sm:text-base md:text-lg">
             {catalogPageData?.selectedCategory?.description}
           </p>
         </div>
@@ -136,16 +142,18 @@ const Catalog = () => {
         <div className="text-xl font-bold text-richblack-5 lg:text-3xl">
           Frequently Bought
         </div>
-        <div className="py-8">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {catalogPageData?.mostSellingCourses?.course ? (
-              catalogPageData?.mostSellingCourses?.course.map((course, i) => (
-                <Course_Card key={i} course={course} />
-              ))
-            ) : (
+      </div>
+      <div className="py-8">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {catalogPageData?.mostSellingCourses?.course ? (
+            catalogPageData?.mostSellingCourses?.course.map((course, i) => (
+              <Course_Card key={i} course={course} />
+            ))
+          ) : (
+            <div className="flex items-center justify-center w-screen">
               <p className="text-xl text-richblack-5">No Course Found</p>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
 

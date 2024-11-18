@@ -139,7 +139,11 @@ const Instructor = () => {
                     />
                     <div className="mt-3 w-full">
                       <p className="text-sm font-medium text-richblack-50">
-                        {course?.courseName}
+                       {
+                        course?.courseName.split(" ").length > 1
+                          ? course.courseName.split(" ").slice(0, 1).join(" ") + "..."
+                          : course.courseName 
+                       }
                       </p>
                       <div className="mt-1  md:space-x-2 md:flex">
                         <p className="text-xs font-medium text-richblack-300">

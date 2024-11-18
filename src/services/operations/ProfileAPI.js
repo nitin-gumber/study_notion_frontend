@@ -21,13 +21,10 @@ export function getUserDetails(token, navigate) {
       });
 
       //  Set the user details in the redux store after getting the user details from the API
-      if (!response.data.success) {
-        throw new Error(response.data.message);
-      }
       dispatch(setUser({ ...response.data.userDetails }));
       dispatch(setLoading(false));
     } catch (error) {
-      console.log("ERROR", error);
+      console.log("ERROR while getting user details", error);
       toast.error(error.response.data.message);
       dispatch(setLoading(false));
       // If the token is invalid, log out the user and navigate to the login page
@@ -54,7 +51,7 @@ export async function getEnrolledCourse(token) {
     result = response?.data?.data;
     toast.dismiss(toastId);
   } catch (error) {
-    console.log("ERROR", error);
+    console.log("ERROR while getting enrolled courses", error);
     toast.error(error.response.data.message);
     toast.dismiss(toastId);
     return result;
@@ -75,10 +72,9 @@ export async function getInstructorData(token) {
       Authorization: `Bearer ${token}`,
     });
     result = response?.data?.data;
-    console.log("Instructor Data", result);
     toast.dismiss(toastId);
   } catch (error) {
-    console.log("ERROR", error);
+    console.log("ERROR while getting instructor data", error);
     toast.error(error.response.data.message);
     toast.dismiss(toastId);
     return result;
@@ -86,5 +82,4 @@ export async function getInstructorData(token) {
 
   toast.dismiss(toastId);
   return result;
-
 }

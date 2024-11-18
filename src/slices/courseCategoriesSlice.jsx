@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 const courseCategoriesSlice = createSlice({
   name: "courseCategories",
   initialState: {

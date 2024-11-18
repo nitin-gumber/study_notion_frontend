@@ -5,9 +5,7 @@ import { Helmet } from "react-helmet-async";
 const Login = () => {
   return (
     <>
-
       <Helmet>
-
         <title>StudyNotion - Login</title>
         <meta
           name="description"
@@ -23,10 +21,15 @@ const Login = () => {
           property="og:description"
           content="StudyNotion is an online learning platform that offers courses in coding, design, and more. Learn from industry experts and start coding in seconds."
         />
-        <meta property="og:image" content="https://www.example.com/image.jpg" />
-        <meta property="og:url" content="https://www.example.com" />
+        <meta
+          property="og:image"
+          content="../assets/Logo/Logo-Full-Light.png"
+        />
+        <meta
+          property="og:url"
+          content="https://studynotion-online.vercel.app/login"
+        />
         <meta property="og:type" content="website" />
-
       </Helmet>
 
       <div className="mt-16">

@@ -40,14 +40,17 @@ const ContactUsForm = () => {
         const response = await apiConnector(
           "POST",
           contactusEndpoint.CONTACT_US_API,
-          data
+          data,
+          {
+            Authorization: `Bearer ${token}`,
+          }
         );
         response.data.success && navigate("/message-sent/success");
         toast.success(response.data.message);
         reset();
       } catch (error) {
         console.log("ERROR............", error);
-        toast.error(error.response?.data?.message || "An error occurred");
+        toast.error(error.response?.data?.message);
       } finally {
         setLoading(false);
         toast.dismiss(toastId);

@@ -12,12 +12,10 @@ import {
 } from "../slices/viewCourseSlice";
 import { getFullDetailsOfCourse } from "../services/operations/courseDetailsAPI";
 import VideoDetailsSlidebar from "../components/core/ViewCourse/VideoDetailsSlidebar";
-import ConfirmationModal from "../components/core/ViewCourse/CourseReviewModal"
+import ConfirmationModal from "../components/core/ViewCourse/CourseReviewModal";
 function ViewCourse() {
   const [reviewModal, setReviewModal] = useState(false);
   const { courseId } = useParams();
-
-  console.log("Course ID==>", courseId);
 
   const { token } = useSelector((state) => state.auth);
 
@@ -28,7 +26,6 @@ function ViewCourse() {
     queryFn: () => getFullDetailsOfCourse(courseId, token),
     enabled: !!token,
   });
-  console.log("Course Data==>", course?.completedVideos.length);
 
   useEffect(() => {
     if (course) {

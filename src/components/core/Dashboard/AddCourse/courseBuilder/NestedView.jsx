@@ -11,10 +11,9 @@ import {
 } from "../../../../../services/operations/courseDetailsAPI";
 import { setCourse } from "../../../../../slices/courseSlice";
 import ConfirmationModal from "../../../../common/ConfirmationModal";
-import SubSectionModal from "./SubSectionModal"
+import SubSectionModal from "./SubSectionModal";
 
 const NestedView = ({ handleChangeEditSectionName }) => {
-  
   const dispatch = useDispatch();
 
   const { course } = useSelector((state) => state.course);
@@ -67,8 +66,7 @@ const NestedView = ({ handleChangeEditSectionName }) => {
               <div className="flex items-center gap-x-3">
                 <RxDropdownMenu className="text-2xl text-richblack-50" />
                 <p className="font-semibold text-richblack-50">
-                 {section.sectionName}
-                
+                  {section.sectionName}
                 </p>
               </div>
               <div className="flex items-center gap-x-3">
@@ -103,17 +101,15 @@ const NestedView = ({ handleChangeEditSectionName }) => {
             <div className="px-6 pb-4">
               {/* Render All Sub Sections Within a Section */}
               {section.subSection.map((data) => (
-                
                 <div
                   key={data?._id}
                   onClick={() => setViewSubSection(data)}
                   className="flex cursor-pointer items-center justify-between gap-x-3 border-b-2 border-b-richblack-600 py-2"
                 >
-                  
                   <div className="flex items-center gap-x-3 py-2 ">
                     <RxDropdownMenu className="text-2xl text-richblack-50" />
                     <p className="font-semibold text-richblack-50">
-                    SubSection Data:  {data?.title}
+                      SubSection Data: {data?.title}
                     </p>
                   </div>
                   <div

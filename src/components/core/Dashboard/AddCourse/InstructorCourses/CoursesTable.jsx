@@ -24,8 +24,6 @@ function CoursesTable({ courses, setCourses }) {
   const [loading, setLoading] = useState(false);
   const [confirmationModal, setConfirmationModal] = useState(null);
 
-  const TRUNCATE_LENGTH = 15;
-
   // Fetching the courses using react-query
   const { data, refetch } = useQuery({
     queryKey: ["instructorCourses", token],
@@ -94,14 +92,18 @@ function CoursesTable({ courses, setCourses }) {
                   />
                   <div className="flex flex-col gap-1 justify-between">
                     <p className="text-lg font-semibold text-richblack-5 mt-3">
-                      {course.courseName}
+                      {
+                      course?.courseName.length > 15
+                        ? course.courseName.slice(0, 15) + "..."
+                        : course.courseName
+                      }
+
                     </p>
                     <p className={`text-xs text-richblack-300`}>
-                      {course?.courseDescription.split(" ")?.length >
-                      TRUNCATE_LENGTH
+                      {course?.courseDescription.split(" ")?.length > 5
                         ? course.courseDescription
                             .split(" ")
-                            .slice(0, TRUNCATE_LENGTH)
+                            .slice(0, 5)
                             .join(" ") + "..."
                         : course.courseDescription}
                     </p>

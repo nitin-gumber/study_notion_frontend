@@ -31,12 +31,11 @@ const viewCourseSlice = createSlice({
 });
 
 export const {
-    setCourseSectionData,
-    setCourseEntireData,
-    setCompletedLectures,
-    setTotalNoOfLecture,
-    updateCompletedLectures
+  setCourseSectionData,
+  setCourseEntireData,
+  setCompletedLectures,
+  setTotalNoOfLecture,
+  updateCompletedLectures,
+} = viewCourseSlice.actions;
 
-} = viewCourseSlice.actions
-
-export default viewCourseSlice.reducer
+export default viewCourseSlice.reducer;

@@ -30,8 +30,6 @@ const CourseDetailsCard = ({
     toast.success("Link copied to clipboard");
   };
 
-  console.log("USER", user);
-
   const handleAddToCart = () => {
     if (user && user?.accountType === ACCOUNT_TYPE.INSTRUCTOR) {
       toast.error("You are an Instructor. You can't buy a course.");

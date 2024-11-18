@@ -9,7 +9,6 @@ const ChatWithAI = () => {
     alert(`Notification request received for: ${email}`);
   };
 
-
   return (
     <>
       <div className="grid place-content-center h-screen">
@@ -48,7 +47,7 @@ const ChatWithAI = () => {
           </form>
 
           <p className="mt-4 text-sm text-gray-400">
-            Notify me when the AI chatbot is ready to use. 
+            Notify me when the AI chatbot is ready to use.
           </p>
         </div>
       </div>

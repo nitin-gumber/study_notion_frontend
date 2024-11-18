@@ -154,7 +154,7 @@ const CourseDetails = () => {
         <meta property="og:image" content={thumbnail} />
         <meta
           property="og:url"
-          content={`https://www.example.com/course/${courseId}`}
+          content={`https://studynotion-online.vercel.app/course/${courseId}`}
         />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -181,8 +181,8 @@ const CourseDetails = () => {
               <p className={`text-richblack-200`}>{courseDescription}</p>
               <div className="text-md flex flex-wrap items-center gap-2">
                 <span className="text-yellow-25">{avgReviewCount}</span>
-                {/* <RatingStars Review_Count={avgReviewCount} Star_Size={24} /> */}
-
+                
+                {/* Rating by MUI */}
                 <Rating
                   name="read-only"
                   value={avgReviewCount}
