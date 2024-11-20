@@ -26,7 +26,8 @@ import ForgetPassword from "./pages/ForgetPassword";
 // pages
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import StudentSignup from "./pages/StudentSignup";
+import InstructorSignup from "./pages/InstructorSignup";
 import UpdatePassword from "./pages/UpdatePassword";
 import VerifyEmail from "./pages/VerifyEmail";
 import Catalog from "./pages/Catalog";
@@ -156,11 +157,22 @@ function App() {
             }
           />
 
+            {/* Signup for Student */}
           <Route
             path="/signup"
             element={
               <OpenRoute>
-                <Signup />
+                <StudentSignup />
+              </OpenRoute>
+            }
+          />
+
+          {/* Signup for Instructor */}
+          <Route
+            path="/create-instructor-account"
+            element={
+              <OpenRoute>
+                <InstructorSignup />
               </OpenRoute>
             }
           />

@@ -13,22 +13,21 @@ const ChatWithAI = () => {
     <>
       <div className="grid place-content-center h-screen">
         <div className="flex flex-col gap-7 items-center text-white">
-          <h2 className="text-6xl font-bold text-transparent ">
+          <h1 className=" text-4xl md:text-6xl font-bold text-transparent ">
             <span className="bg-clip-text bg-gradient-to-r from-caribbeangreen-200 via-blue-200  to-blue-500">
               Coming
             </span>{" "}
             <span className="bg-clip-text bg-gradient-to-r from-blue-500 via-yellow-300  to-pink-300">
               Soon
             </span>
-          </h2>
-          <p className=" text-base md:text-lg text-gray-400 text-center px-2">
+          </h1>
+          <p className=" text-base md:text-lg text-gray-400 text-center px-4 w-11/12 max-w-2xl">
             We are working hard to bring you the best AI experience.
-            <br />
             Stay tuned and subscribe to get notified when we launch.
           </p>
 
           <form onSubmit={handleSubmit}>
-            <div className="flex justify-center">
+            <div className="flex justify-center max-w-6">
               <input
                 type="email"
                 placeholder="Please enter your email address"
@@ -39,7 +38,7 @@ const ChatWithAI = () => {
               />
               <button
                 type="submit"
-                className="px-4 py-2 bg-white text-black rounded-r-md focus:outline-none"
+                className="px-4 py-2 bg-white text-black rounded-r-md focus:outline-none whitespace-nowrap"
               >
                 Notify Me
               </button>

@@ -1,22 +1,29 @@
 import { FcGoogle } from "react-icons/fc";
 import FrameImg from "../../../assets/Images/frame.png";
-import SignupForm from "./SignupForm";
+import StudentSignupForm from "./StudentSignupForm";
+import InstructorSignupForm from "./InstructorSignupForm";
 import LoginForm from "./LoginForm";
 
 const Template = ({ title, desc1, desc2, image, formType }) => {
   return (
     <>
-      <div className="lg:flex lg:justify-between lg:flex-row w-11/12 max-w-[1160px] gap-y-0 mt-12 mx-auto">
+      <div className="lg:flex lg:justify-between lg:flex-row w-11/12 max-w-[1160px] gap-y-0 mt-20 mx-auto">
         <div className="w-11/12 max-w-[450px] mx-auto">
-          <h2 className=" text-richblack-5 font-semibold font-inter text-[1.875rem] leading-[2.375rem]">
+          <h1 className=" text-richblack-5 font-semibold font-inter text-[1.875rem] leading-[2.375rem]">
             {title}
-          </h2>
+          </h1>
           <p className=" text-[1.125rem] leading-[1.627rem] font-inter mt-4">
             <span className=" text-richblack-100 block">{desc1}</span>
             <span className=" text-blue-100 italic">{desc2}</span>
           </p>
+          {formType === "studentSignup" ? (
+            <StudentSignupForm />
+          ) : formType === "instructorSignup" ? (
+            <InstructorSignupForm />
+          ) : (
+            <LoginForm />
+          )}
 
-          {formType === "signup" ? <SignupForm /> : <LoginForm />}
           <div className=" flex w-full items-center my-4 gap-x-2">
             <div className="h-[1px] w-full bg-richblack-700"></div>
             <p className=" text-richblack-700 font-medium leading-[1.375rem]">

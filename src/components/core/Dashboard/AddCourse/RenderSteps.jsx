@@ -10,15 +10,15 @@ export default function RenderSteps() {
   const steps = [
     {
       id: 1,
-      title: "Course Information",
+      title: "Information",
     },
     {
       id: 2,
-      title: "Course Builder",
+      title: "Builder",
     },
     {
       id: 3,
-      title: "Publish Course",
+      title: "Publish",
     },
   ]
 

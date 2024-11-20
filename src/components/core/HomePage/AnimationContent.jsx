@@ -27,14 +27,14 @@ const AnimationContent = () => {
       <div className="lg:flex lg:gap-5 lg:h-screen lg:w-full">
         <div className="lg:w-1/2 lg:mx-auto flex flex-col gap-10 mt-8 lg:mt-20 items-start">
           {/* Heading */}
-          <div
+          <h1
             data-aos="fade-right"
             data-aos-duration="1500"
             className="text-start text-4xl md:text-5xl font-semibold"
           >
             Empower Your Future with
             <HighlightText text={"Coding Skills"} />
-          </div>
+          </h1>
 
           {/* SubHeading */}
           <div

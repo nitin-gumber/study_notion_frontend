@@ -44,10 +44,10 @@ const About = () => {
       <section className="bg-richblack-700 mt-14">
         <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-center text-white">
           <header className="mx-auto py-20 text-4xl font-semibold lg:w-[70%]">
-            <div data-aos="fade-right" data-aos-duration="1500">
+            <h1 data-aos="fade-right" data-aos-duration="1500">
               Driving Innovation in Online Education for a
               <HighlightText text={"Brighter Future"} />
-            </div>
+            </h1>
             <p
               data-aos="fade-up"
               data-aos-duration="1500"

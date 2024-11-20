@@ -174,9 +174,9 @@ const CourseDetails = () => {
             </div>
             <div className="z-30 my-5 flex flex-col justify-center gap-4 py-5 text-lg text-richblack-5">
               <div>
-                <p className="text-2xl font-bold text-richblack-5 sm:text-[42px] sm:leading-snug">
+                <h1 className="text-2xl font-bold text-richblack-5 sm:text-[42px] sm:leading-snug">
                   {courseName}
-                </p>
+                </h1>
               </div>
               <p className={`text-richblack-200`}>{courseDescription}</p>
               <div className="text-md flex flex-wrap items-center gap-2">

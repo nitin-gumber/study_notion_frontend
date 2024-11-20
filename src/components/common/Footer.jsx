@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaFacebook, FaGoogle, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import Logo from "../../assets/Logo/Logo-Full-Light.png";
 import { FooterLink2 } from "../../data/footer-links";
 
@@ -27,10 +28,12 @@ const Footer = () => {
             {/* Section 1 */}
             <div className="lg:w-[50%] flex flex-wrap flex-row justify-between lg:border-r-0 lg:border-richblack-700 pl-3 lg:pr-5 gap-3">
               <div className="w-[30%] flex flex-col gap-3 lg:w-[30%] mb-7 lg:pl-0">
-                <img src={Logo} 
-                alt="BrandLogo" 
-                loading="lazy"
-                className="object-contain" />
+                <img
+                  src={Logo}
+                  alt="BrandLogo"
+                  loading="lazy"
+                  className="object-contain"
+                />
                 <h2 className="text-richblack-50 font-semibold text-[16px]">
                   Company
                 </h2>
@@ -45,10 +48,27 @@ const Footer = () => {
                   ))}
                 </div>
                 <div className="flex gap-3 text-lg">
-                  <FaFacebook className=" cursor-pointer hover:text-richblack-50 transition-all duration-200" />
-                  <FaTwitter className=" cursor-pointer hover:text-richblack-50 transition-all duration-200" />
-                  <FaGoogle className=" cursor-pointer hover:text-richblack-50 transition-all duration-200" />
-                  <FaYoutube className=" cursor-pointer hover:text-richblack-50 transition-all duration-200" />
+                  <a href="https://github.com/Nitin-Gumber" target="_blank">
+                    <FaGithub className=" text-2xl cursor-pointer hover:text-richblack-50 transition-all duration-200" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/nitin-gumber-web-dev"
+                    target="_blank"
+                  >
+                    <FaLinkedin className=" text-2xl cursor-pointer hover:text-richblack-50 transition-all duration-200" />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/nitin.gumber_/profilecard/?igsh=ZnpibmRycjMwZjJq"
+                    target="_blank"
+                  >
+                    <FaInstagram className=" text-2xl cursor-pointer hover:text-richblack-50 transition-all duration-200" />
+                  </a>
+                  <a
+                    href="https://x.com/Nitin601?t=tt1K5tdELxi2F8aeSbxZqg&s=09"
+                    target="_blank"
+                  >
+                    <FaXTwitter className=" text-2xl cursor-pointer hover:text-richblack-50 transition-all duration-200" />
+                  </a>
                 </div>
                 <div></div>
               </div>

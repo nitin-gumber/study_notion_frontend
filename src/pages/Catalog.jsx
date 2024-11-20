@@ -86,9 +86,9 @@ const Catalog = () => {
               {catalogPageData?.selectedCategory?.name}
             </span>
           </p>
-          <p className="text-2xl md:text-3xl lg:text-4xl text-richblack-5">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl text-richblack-5">
             {catalogPageData?.selectedCategory?.name}
-          </p>
+          </h1>
           <p className="max-w-[1200px] text-richblack-200 text-sm sm:text-base md:text-lg">
             {catalogPageData?.selectedCategory?.description}
           </p>

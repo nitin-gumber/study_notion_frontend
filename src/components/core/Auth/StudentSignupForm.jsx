@@ -10,13 +10,13 @@ import { sendOtp } from "../../../services/operations/authAPI";
 import { setSignupData } from "../../../slices/authSlice";
 import { isDisposableEmail } from "../../../util/checkDisposableEmail";
 
-function SignupForm() {
+function StudentSignupForm() {
   // Redux Hooks definations
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // student or instructor account type state
-  const [accountType, setAccountType] = useState(ACCOUNT_TYPE.STUDENT);
+  // Account Type for Signup Form (Student)
+  const accountType = ACCOUNT_TYPE.STUDENT;
 
   // Password visibility state
   const [showPassword, setShowPassword] = useState(false);
@@ -55,24 +55,14 @@ function SignupForm() {
     }
   }, [isSubmitSuccessful, reset]);
 
-  // Tab Data for Student & Instructor Tab
-  const tabData = [
-    {
-      id: 1,
-      tabName: "Student",
-      type: ACCOUNT_TYPE.STUDENT,
-    },
-    {
-      id: 2,
-      tabName: "Instructor",
-      type: ACCOUNT_TYPE.INSTRUCTOR,
-    },
-  ];
-
   return (
     <>
       {/*  Siwfiting Tab Student & Instructor */}
-      <Tab tabData={tabData} field={accountType} setField={setAccountType} />
+      {/* <Tab tabData={tabData} field={accountType} setField={setAccountType} /> */}
+
+      <p className="text-[20px] font-semibold font-inter text-richblack-25 bg-richblack-800 py-2 px-4 w-fit rounded-md my-5">
+        Student Signup
+      </p>
 
       {/* Signup Form for SignUp */}
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-2">
@@ -272,4 +262,4 @@ function SignupForm() {
   );
 }
 
-export default SignupForm;
+export default StudentSignupForm;
