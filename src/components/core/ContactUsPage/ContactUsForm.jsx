@@ -89,7 +89,7 @@ const ContactUsForm = () => {
               },
             })}
             placeholder="Enter your first name"
-            value={token ? `${user?.firstName}` : ``}
+            value={token && (user?.firstName ? user.firstName : "Loading")}
             className="rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none focus:border-yellow-50 focus:ring-1 focus:ring-yellow-50"
           />
           {errors.firstname && (
@@ -124,7 +124,7 @@ const ContactUsForm = () => {
               },
             })}
             placeholder="Enter your last name"
-            value={token ? `${user?.lastName}` : ``}
+            value={token && (user?.lastName ? user?.lastName : "Loading")}
             className="rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none focus:border-yellow-50 focus:ring-1 focus:ring-yellow-50"
           />
           {errors.lastName && (
@@ -152,7 +152,7 @@ const ContactUsForm = () => {
             },
           })}
           placeholder="Enter your email address"
-          value={token ? `${user?.email}` : ``}
+          value={token && (user?.email ? user?.email : "Loading" )}
           className="rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none focus:border-yellow-50 focus:ring-1 focus:ring-yellow-50"
         />
         {errors.email && (

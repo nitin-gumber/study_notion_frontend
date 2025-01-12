@@ -5,6 +5,7 @@ import { RxCountdownTimer } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { sendOtp, signup } from "../services/operations/authAPI";
+import { Helmet } from "react-helmet-async";
 
 const VerifyEmail = () => {
   // Redux Hooks definations
@@ -51,6 +52,13 @@ const VerifyEmail = () => {
 
   return (
     <>
+
+      <Helmet>
+        <title>Verify Email - StudyNotion</title>
+        <meta name="description" content="Verify Email - StudyNotion" />
+        <meta name="keywords" content="StudyNotion, Online Course, Course Selling Plateform, Verify Email" />
+      </Helmet>
+
       <div className="min-h-[calc(100vh-3.5rem)] grid place-items-center">
         {loading ? (
           <div className="flex items-center justify-center h-screen">

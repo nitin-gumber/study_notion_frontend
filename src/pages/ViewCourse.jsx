@@ -13,6 +13,8 @@ import {
 import { getFullDetailsOfCourse } from "../services/operations/courseDetailsAPI";
 import VideoDetailsSlidebar from "../components/core/ViewCourse/VideoDetailsSlidebar";
 import ConfirmationModal from "../components/core/ViewCourse/CourseReviewModal";
+import { Helmet } from "react-helmet-async";
+
 function ViewCourse() {
   const [reviewModal, setReviewModal] = useState(false);
   const { courseId } = useParams();
@@ -42,6 +44,12 @@ function ViewCourse() {
 
   return (
     <>
+      <Helmet>
+        <title>{course?.courseDetails?.title}</title>
+        <meta name="description" content={course?.courseDetails?.description} />
+        <meta name="keywords" content={course?.courseDetails?.title} />
+      </Helmet>
+
       <div className="flex w-screen mt-14">
         <VideoDetailsSlidebar setReviewModal={setReviewModal} />
 

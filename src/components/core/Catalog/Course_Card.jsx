@@ -70,15 +70,17 @@ function Course_Card({ course }) {
               gutterBottom
               sx={{ fontWeight: "bold", fontSize: "1rem" }}
             >
-              {course?.courseName.split(" ").length > 4
-                ? course?.courseName.split(" ").slice(0, 4).join(" ") + "..."
-                : course?.courseName}
+              {
+                course?.courseName.length > 30
+                  ? course?.courseName.slice(0, 30) + "..."
+                  : course?.courseName
+              }
             </Typography>
 
             {/* Discription */}
             <Typography variant="body2" color="#F1F2FF">
-              {course?.courseDescription.length > 80
-                ? course?.courseDescription.slice(0, 80) + "..."
+              {course?.courseDescription.length > 100
+                ? course?.courseDescription.slice(0, 100) + "..."
                 : course?.courseDescription}
             </Typography>
 

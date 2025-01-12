@@ -38,7 +38,6 @@ import MessageSuccessPage from "./pages/MessageSuccessPage";
 import Error from "./pages/Error";
 import CourseDetails from "./pages/CourseDetails";
 import Dashboard from "./pages/Dashboard";
-import ChatWithAI from "./pages/ChatWithAI";
 
 function App() {
   // AOS - Animate on Scroll
@@ -65,32 +64,6 @@ function App() {
 
   return (
     <>
-      {/* Fully Helmet SEO */}
-
-      <Helmet>
-        <title>StudyNotion - Online Learning Platform</title>
-        <meta
-          name="description"
-          content="StudyNotion is a platform that provides free courses on programming and development."
-        />
-        <meta
-          name="keywords"
-          content="Code For Cause, programming, development courses, free courses StudyNotion StudyNotionOnline Online Course Selling Plateform StudyNotion, Nitin Gumber, Nitin Kumar, Nitin Gumber, Nitin Kumar Gumber, Nitin Gumber's Project"
-        />
-
-        <meta property="og:title" content="Code For Cause" />
-        <meta
-          property="og:description"
-          content="StudyNotion is a platform that provides free courses on programming and development."
-        />
-        <meta property="og:image" content="./assets/Logo/Logo-Full-Light.png" />
-        <meta
-          property="og:url"
-          content="https://studynotion-online.vercel.app"
-        />
-        <meta property="og:type" content="website" />
-      </Helmet>
-
       <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
         <Navbar />
         <Routes>
@@ -118,16 +91,6 @@ function App() {
 
           {/* Course Details path */}
           <Route path="courses/:courseId" element={<CourseDetails />} />
-
-          {/* Chatwithai Path */}
-          <Route
-            path="/chatwithai"
-            element={
-              <PrivateRoute>
-                <ChatWithAI />
-              </PrivateRoute>
-            }
-          />
 
           {/* Open Rotes - for only Non Logged in User */}
           <Route
@@ -157,7 +120,7 @@ function App() {
             }
           />
 
-            {/* Signup for Student */}
+          {/* Signup for Student */}
           <Route
             path="/signup"
             element={

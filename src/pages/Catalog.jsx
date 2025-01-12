@@ -48,7 +48,7 @@ const Catalog = () => {
   return (
     <>
       <Helmet>
-        <title>{`Catalog - ${catalogPageData?.selectedCategory?.name}`}</title>
+        <title>{`Catalog - ${catalogPageData?.selectedCategory?.name ? `${catalogPageData?.selectedCategory?.name}` : `loading` }`}</title>
 
         <meta
           name="description"

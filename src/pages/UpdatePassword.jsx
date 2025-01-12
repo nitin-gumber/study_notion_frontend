@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi";
 import { resetPassword } from "../services/operations/authAPI";
+import { Helmet } from "react-helmet-async";
 
 const UpdatePassword = () => {
   // Redux Hooks definations for dispatch and selectors
@@ -40,6 +41,13 @@ const UpdatePassword = () => {
 
   return (
     <>
+
+      <Helmet>
+        <title>Update Password - StudyNotion</title>
+        <meta name="description" content="Update Password - StudyNotion" />
+        <meta name="keywords" content="StudyNotion, Online Course, Course Selling Plateform, Update Password" />
+      </Helmet>
+
       <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
         {loading ? (
           <div className="flex items-center justify-center h-screen">

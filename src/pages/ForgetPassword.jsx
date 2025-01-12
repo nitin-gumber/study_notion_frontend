@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 import { getPasswordRestToken } from "../services/operations/authAPI";
+import { Helmet } from "react-helmet-async";
 
 export default function ForgotPassword() {
   // Redux Hooks definations for dispatch
@@ -32,6 +33,13 @@ export default function ForgotPassword() {
 
   return (
     <>
+
+      <Helmet>
+        <title>Forgot Password - StudyNotion</title>
+        <meta name="description" content="Forgot Password - StudyNotion" />
+        <meta name="keywords" content="StudyNotion, Online Course, Course Selling Plateform, Forgot Password" />
+      </Helmet>
+
       <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center text-richblack-5">
         {loading ? (
           <div className="flex items-center justify-center h-screen">
